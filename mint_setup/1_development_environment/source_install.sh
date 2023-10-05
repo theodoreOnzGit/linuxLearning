@@ -22,3 +22,7 @@ function bleeding_edge_neovim(){
 	sudo apt install neovim -y
 }
 
+echo "install_ssh: installs and configures ssh"
+function install_ssh(){
+	sudo apt install openssh-server openssh-client -y
+}
