@@ -146,3 +146,8 @@ function nvim_stuff(){
 
 
 }
+
+echo "kde_stuff: installs useful software from kde suite"
+function kde_stuff(){
+	sudo apt install okular-dev okular -y
+}

@@ -32,11 +32,15 @@ return require('packer').startup(function()
 	-- fugitive 
 	use 'tpope/vim-fugitive'
 
+	-- vim latex
+	use 'vim-latex/vim-latex'
+
 	-- vim align (in the arch repos)
 	use 'junegunn/vim-easy-align'
 
-    -- ultisnips
+    -- ultisnips and snippets
     use 'SirVer/ultisnips'
+	use 'honza/vim-snippets'
 
 	-- typst
 	use {'kaarmu/typst.vim', ft = {'typst'}}
