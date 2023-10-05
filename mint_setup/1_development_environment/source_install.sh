@@ -119,7 +119,7 @@ function nvim_stuff(){
 	sudo apt install vim-fugitive vim-gitgutter -y
 	sudo apt install vim-airline vim-airline-themes vim-ale -y
 	sudo apt install vim-solarized vim-snippets -y
-	sudo apt install vim-latexsuite vim-ultisnips vim-tabular -y
+	sudo apt install vim-latexsuite vim-tabular -y
 	sudo apt install vim-ctrlp -y
 
 	# packer
