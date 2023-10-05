@@ -4,5 +4,7 @@ require('basic_settings.basic_settings')
 -- package manager and plugins
 require('plugins.plugins')
 
---plugins
+-- lsp
+require('lsp.lsp')
+
 

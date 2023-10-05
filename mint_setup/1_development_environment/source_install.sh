@@ -114,7 +114,7 @@ function latex_stuff(){
 echo "nvim_stuff: configures nvim to some level of capability"
 function nvim_stuff(){
 	mkdir ~/.config/nvim
-	cp basic_init_lua ~/.config/nvim/init.lua
+	cp nvim_files/basic_init_lua ~/.config/nvim/init.lua
 
 	sudo apt install vim-gitgutter -y
 	sudo apt install vim-airline vim-airline-themes vim-ale -y
