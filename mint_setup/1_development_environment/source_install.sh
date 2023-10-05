@@ -116,7 +116,7 @@ function nvim_stuff(){
 	mkdir ~/.config/nvim
 	cp basic_init_lua ~/.config/nvim/init.lua
 
-	sudo apt install vim-fugitive vim-gitgutter -y
+	sudo apt install vim-gitgutter -y
 	sudo apt install vim-airline vim-airline-themes vim-ale -y
 	sudo apt install vim-solarized vim-snippets -y
 	sudo apt install vim-latexsuite vim-tabular -y
@@ -129,13 +129,19 @@ function nvim_stuff(){
 	# lua plugins
 	mkdir -p ~/.config/nvim/lua/plugins
 	rm ~/.config/nvim/lua/plugins/plugins.lua
-	cp plugins.lua ~/.config/nvim/lua/plugins/plugins.lua
+	cp nvim_files/init_lua ~/.config/nvim/init.lua
+	cp nvim_files/plugins.lua ~/.config/nvim/lua/plugins/plugins.lua
 
 	#lua basic settings
 	mkdir -p ~/.config/nvim/lua/basic_settings
 	rm ~/.config/nvim/lua/basic_settings/basic_settings.lua
-	cp init_lua ~/.config/nvim/init.lua
-	cp basic_init_lua ~/.config/nvim/lua/basic_settings/basic_settings.lua
+	cp nvim_files/basic_init_lua ~/.config/nvim/lua/basic_settings/basic_settings.lua
+
+	# lua lsp 
+	mkdir -p ~/.config/nvim/lua/lsp
+	rm ~/.config/nvim/lua/lsp/lsp.lua
+	cp nvim_files/lsp.lua ~/.config/nvim/lua/lsp/lsp.lua
+	
 
 
 }
