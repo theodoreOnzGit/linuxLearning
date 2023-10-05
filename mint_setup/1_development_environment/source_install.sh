@@ -100,3 +100,13 @@ function terminal_navigation(){
 	sudo apt install fzf -y
 }
 
+echo "apt_fast_install: installs apt fast"
+function apt_fast_install(){
+	sudo apt install aria2
+	/bin/bash -c "$(curl -sL https://git.io/vokNn)"
+}
+
+echo "latex_stuff: installs most essential things for latex"
+function latex_stuff(){
+	sudo apt install texlive-full -y
+}
