@@ -1,4 +1,9 @@
 vim.cmd [[packadd packer.nvim]]
+vim.cmd([[
+colorscheme gruvbox
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
+]])
 
 return require('packer').startup(function()
 	-- Packer can manage itself
@@ -16,6 +21,19 @@ return require('packer').startup(function()
 
     -- git gutter
     -- use 'vim-scripts/vim-gitgutter'
+	
+	-- airline 
+	use 'vim-airline/vim-airline'
+	use 'vim-airline/vim-airline-themes'
+
+	-- tagbar
+	use 'preservim/tagbar'
+
+	-- fugitive 
+	use 'tpope/vim-fugitive'
+
+	-- vim align (in the arch repos)
+	use 'junegunn/vim-easy-align'
 
     -- ultisnips
     use 'SirVer/ultisnips'
@@ -74,3 +92,5 @@ return require('packer').startup(function()
 		}
 	})
 end)
+
+

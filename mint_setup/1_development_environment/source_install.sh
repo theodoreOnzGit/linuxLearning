@@ -114,13 +114,13 @@ function latex_stuff(){
 echo "nvim_stuff: configures nvim to some level of capability"
 function nvim_stuff(){
 	mkdir ~/.config/nvim
-	cp nvim_files/basic_init_lua ~/.config/nvim/init.lua
+	cp nvim_files/basic_init.lua ~/.config/nvim/init.lua
 
 	sudo apt install vim-gitgutter -y
 	sudo apt install vim-airline vim-airline-themes vim-ale -y
 	sudo apt install vim-solarized vim-snippets -y
 	sudo apt install vim-latexsuite vim-tabular -y
-	sudo apt install vim-ctrlp -y
+	sudo apt install vim-ctrlp universal-ctags -y
 
 	# packer
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -129,13 +129,13 @@ function nvim_stuff(){
 	# lua plugins
 	mkdir -p ~/.config/nvim/lua/plugins
 	rm ~/.config/nvim/lua/plugins/plugins.lua
-	cp nvim_files/init_lua ~/.config/nvim/init.lua
+	cp nvim_files/init.lua ~/.config/nvim/init.lua
 	cp nvim_files/plugins.lua ~/.config/nvim/lua/plugins/plugins.lua
 
 	#lua basic settings
 	mkdir -p ~/.config/nvim/lua/basic_settings
 	rm ~/.config/nvim/lua/basic_settings/basic_settings.lua
-	cp nvim_files/basic_init_lua ~/.config/nvim/lua/basic_settings/basic_settings.lua
+	cp nvim_files/basic_init.lua ~/.config/nvim/lua/basic_settings/basic_settings.lua
 
 	# lua lsp 
 	mkdir -p ~/.config/nvim/lua/lsp
