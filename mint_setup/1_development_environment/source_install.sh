@@ -115,4 +115,27 @@ echo "nvim_stuff: configures nvim to some level of capability"
 function nvim_stuff(){
 	mkdir ~/.config/nvim
 	cp basic_init_lua ~/.config/nvim/init.lua
+
+	sudo apt install vim-fugitive vim-gitgutter -y
+	sudo apt install vim-airline vim-airline-themes vim-ale -y
+	sudo apt install vim-solarized vim-snippets -y
+	sudo apt install vim-latexsuite vim-ultisnips vim-tabular -y
+	sudo apt install vim-ctrlp -y
+
+	# packer
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+		~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+	# lua plugins
+	mkdir -p ~/.config/nvim/lua/plugins
+	rm ~/.config/nvim/lua/plugins/plugins.lua
+	cp plugins.lua ~/.config/nvim/lua/plugins/plugins.lua
+
+	#lua basic settings
+	mkdir -p ~/.config/nvim/lua/basic_settings
+	rm ~/.config/nvim/lua/basic_settings/basic_settings.lua
+	cp init_lua ~/.config/nvim/init.lua
+	cp basic_init_lua ~/.config/nvim/lua/basic_settings/basic_settings.lua
+
+
 }

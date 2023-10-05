@@ -1,0 +1,5 @@
+--basic settings, spellcheck and others
+require('basic_settings.basic_settings')
+
+-- package manager
+require('plugins.plugins')
