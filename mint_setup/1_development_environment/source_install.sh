@@ -110,3 +110,9 @@ echo "latex_stuff: installs most essential things for latex"
 function latex_stuff(){
 	sudo apt install texlive-full -y
 }
+
+echo "nvim_stuff: configures nvim to some level of capability"
+function nvim_stuff(){
+	mkdir ~/.config/nvim
+	cp basic_init_lua ~/.config/nvim/init.lua
+}
