@@ -1,7 +1,7 @@
 echo "basic_stuff: installs vim, git and other compilation tools"
 function basic_stuff(){
 	sudo apt install build-essential \
-		vim tmux cmake fontconfig -y
+		vim tmux cmake fontconfig gcc gfortran -y
 	}
 
 echo "zsh_plus: zsh and font installs"
@@ -151,3 +151,12 @@ echo "kde_stuff: installs useful software from kde suite"
 function kde_stuff(){
 	sudo apt install okular-dev okular -y
 }
+
+echo "latest_gcc: installs latest version of gcc for newer processors"
+function latest_gcc(){
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
+	sudo apt update
+	sudo apt install g++-12 gcc-12
+}
+
+echo ""
