@@ -19,4 +19,8 @@ set scrolloff=5
 
 "coloured column
 set cc=75
+
+"spelling 
+set spell 
+set spelllang=en_gb
 ]])
