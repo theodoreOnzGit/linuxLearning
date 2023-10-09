@@ -142,8 +142,11 @@ function nvim_stuff(){
 	mkdir -p ~/.config/nvim/lua/lsp
 	rm ~/.config/nvim/lua/lsp/lsp.lua
 	cp nvim_files/lsp.lua ~/.config/nvim/lua/lsp/lsp.lua
-	
 
+	# lua telescope and harpoon 
+	rm ~/.config/nvim/lua/plugins/telescope_harpoon.lua
+	cp nvim_files/telescope_harpoon.lua ~/.config/nvim/lua/plugins/telescope_harpoon.lua
+	
 
 }
 

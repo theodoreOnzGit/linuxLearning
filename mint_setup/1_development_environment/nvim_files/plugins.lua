@@ -95,6 +95,14 @@ return require('packer').startup(function()
 			-- requires = { "nvim-treesitter/nvim-treesitter" },
 		}
 	})
+
+	-- telescope and harpoon
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.3',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
+	use { 'ThePrimeagen/harpoon' }
 end)
 
 
