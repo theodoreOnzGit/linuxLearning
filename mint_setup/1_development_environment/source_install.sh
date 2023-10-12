@@ -162,4 +162,7 @@ function latest_gcc(){
 	sudo apt install g++-12 gcc-12
 }
 
-echo ""
+echo "citations: installs jabref and other suites"
+function citations(){
+	sudo apt install jabref
+}
