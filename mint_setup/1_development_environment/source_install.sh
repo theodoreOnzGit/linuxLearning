@@ -166,3 +166,8 @@ echo "citations: installs jabref and other suites"
 function citations(){
 	sudo apt install jabref
 }
+
+echo "rust_eframe_deps: installs rust-eframe dependencies"
+function rust_eframe_deps(){
+	sudo apt-get install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev
+}
