@@ -17,12 +17,14 @@ function zsh_plus(){
 	rm -rf ~/powerlevel10k
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-	exec zsh
-	p10k configure
+
+	zsh -c 'source ~/.zshrc && p10k configure'
 
 	echo "alias ls=exa" >> ~/.p10k.zsh
 	echo "alias l='exa -al'" >> ~/.p10k.zsh
+	echo "export TERM=screen-256color" >> ~/.p10k.zsh
 }
+
 
 
 
@@ -170,4 +172,15 @@ function citations(){
 echo "rust_eframe_deps: installs rust-eframe dependencies"
 function rust_eframe_deps(){
 	sudo apt-get install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev
+}
+
+echo "tuxedo_firmware_jammy: \n 
+for clevo laptops specificially, install firmware for keyboard, fan etc
+	\n only works for jammy ubuntu"
+function tuxedo_firmware_jammy(){
+	sudo add-apt-repository "deb https://deb.tuxedocomputers.com/ubuntu jammy main"
+	sudo apt update --allow-insecure-repositories
+	sudo apt install --allow-unauthenticated tuxedo-archive-keyring
+	sudo apt update
+	sudo apt install tuxedo-control-center tuxedo-keyboard -y
 }
