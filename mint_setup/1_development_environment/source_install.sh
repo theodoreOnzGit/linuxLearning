@@ -174,13 +174,29 @@ function rust_eframe_deps(){
 	sudo apt-get install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev
 }
 
-echo "tuxedo_firmware_jammy: \n 
+echo "tuxedo_firmware_jammy: 
 for clevo laptops specificially, install firmware for keyboard, fan etc
-	\n only works for jammy ubuntu"
+	only works for jammy ubuntu"
 function tuxedo_firmware_jammy(){
 	sudo add-apt-repository "deb https://deb.tuxedocomputers.com/ubuntu jammy main"
 	sudo apt update --allow-insecure-repositories
 	sudo apt install --allow-unauthenticated tuxedo-archive-keyring
 	sudo apt update
 	sudo apt install tuxedo-control-center tuxedo-keyboard -y
+}
+
+echo "samba_install: installs and configures samba"
+function samba_install(){
+	sudo apt install samba -y
+	mkdir /home/$USER/Public/sambaSharedFolder
+	# note, the double quotes will allow input from bash variables 
+	# eg. $USER
+	cp ./smb-template.conf ./smb.conf
+	sed -i "s/input_user/$USER/g" ./smb.conf
+	sudo cp -i ./smb.conf /etc/samba/.
+	# add user to smb 
+	sudo smbpasswd -a $USER
+	sudo systemctl enable smbd 
+	sudo systemctl restart smbd
+
 }
