@@ -200,3 +200,10 @@ function samba_install(){
 	sudo systemctl restart smbd
 
 }
+
+echo "wsdd_install: installs wsdd for samba"
+function wsdd_install(){
+	sudo apt install wsdd2 -y
+	sudo systemctl enable wsdd2
+	sudo systemctl start wsdd2
+}
