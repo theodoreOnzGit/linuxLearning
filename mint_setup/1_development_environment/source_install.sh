@@ -130,24 +130,23 @@ function nvim_stuff(){
 		~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 	# lua plugins
-	mkdir -p ~/.config/nvim/lua/plugins
-	rm ~/.config/nvim/lua/plugins/plugins.lua
+	mkdir -p ~/.config/nvim/lua/
+	rm ~/.config/nvim/lua/plugins.lua
 	cp nvim_files/init.lua ~/.config/nvim/init.lua
-	cp nvim_files/plugins.lua ~/.config/nvim/lua/plugins/plugins.lua
+	cp nvim_files/plugins.lua ~/.config/nvim/lua/plugins.lua
 
 	#lua basic settings
 	mkdir -p ~/.config/nvim/lua/basic_settings
-	rm ~/.config/nvim/lua/basic_settings/basic_settings.lua
-	cp nvim_files/basic_init.lua ~/.config/nvim/lua/basic_settings/basic_settings.lua
+	rm ~/.config/nvim/lua/basic_settings/settings.lua
+	cp nvim_files/basic_init.lua ~/.config/nvim/lua/basic_settings/settings.lua
 
 	# lua lsp 
-	mkdir -p ~/.config/nvim/lua/lsp
-	rm ~/.config/nvim/lua/lsp/lsp.lua
-	cp nvim_files/lsp.lua ~/.config/nvim/lua/lsp/lsp.lua
+	rm ~/.config/nvim/lua/lsp.lua
+	cp nvim_files/lsp.lua ~/.config/nvim/lua/lsp.lua
 
 	# lua telescope and harpoon 
-	rm ~/.config/nvim/lua/plugins/telescope_harpoon.lua
-	cp nvim_files/telescope_harpoon.lua ~/.config/nvim/lua/plugins/telescope_harpoon.lua
+	rm ~/.config/nvim/lua/telescope_harpoon.lua
+	cp nvim_files/telescope_harpoon.lua ~/.config/nvim/lua/telescope_harpoon.lua
 	
 
 }

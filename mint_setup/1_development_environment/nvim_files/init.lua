@@ -1,11 +1,23 @@
 --basic settings, spellcheck and others
-require('basic_settings.basic_settings')
+require('basic_settings.settings')
+
+-- disable netrw at start of init.lua 
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups 
+vim.opt.termguicolors = true
 
 -- package manager and plugins
-require('plugins.plugins')
-require('plugins.telescope_harpoon')
+require('plugins')
+require('telescope_harpoon')
+
+-- mason setup manager 
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 -- lsp
-require('lsp.lsp')
+require('lsp')
 
 

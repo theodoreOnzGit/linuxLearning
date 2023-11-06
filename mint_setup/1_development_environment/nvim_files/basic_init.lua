@@ -1,26 +1,41 @@
+-- basic options
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.wrap = false
+
+-- makes scrolling easier
+vim.opt.scrolloff = 5
+
+-- for spelling
+vim.opt.spell = true
+vim.cmd("set spelllang=en_gb")
+
+-- colorscheme
 vim.cmd([[
-"here are line number setups to help you move around using
-" hjkl
-set relativenumber
-set number
+colorscheme gruvbox
+set background=dark
+let g:airline_theme='dark'
+]])
 
-" nowrap helps you see if you need to move to the next line
-set nowrap
-
-" basic syntax highlighting and auto-indenting
+-- syntax
+vim.cmd([[
 syntax on
 filetype indent on
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+]])
 
-" makes scrolling easier
-set scrolloff=5
+-- enables vim-latex on all .tex files
+vim.cmd([[
+autocmd BufNewFile,BufRead *.tex set filetype=tex
+"autocmd BufNewFile,BufRead *.typ set filetype=typst
+]])
 
-"coloured column
-set cc=75
+-- color column
+vim.cmd("set cc=75")
 
-"spelling 
-set spell 
-set spelllang=en_gb
+-- for NERDTree specifically
+vim.cmd([[
+let NERDTreeShowHidden=1
 ]])

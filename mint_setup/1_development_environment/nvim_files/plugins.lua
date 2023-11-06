@@ -1,72 +1,40 @@
-vim.cmd [[packadd packer.nvim]]
-vim.cmd([[
-colorscheme gruvbox
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='dark'
-]])
+-- note: for lazy on Arch Linux, please install via AUR as well,
+-- it's easier...
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+local plugins = {
 
-return require('packer').startup(function()
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
-
-	-- tree, like NERDTree but another one in lua
-	use 'nvim-tree/nvim-tree.lua'
-	use 'nvim-tree/nvim-web-devicons'
-
-	-- NERDTree
-    use 'preservim/nerdtree'
-
-	-- gruvbox theme
-    use 'morhetz/gruvbox'
-
-    -- git gutter
+    -- git gutter (may clash with ubuntu's existing git-gutter
+	-- if on linux mint)
     -- use 'vim-scripts/vim-gitgutter'
-	
-	-- airline 
-	use 'vim-airline/vim-airline'
-	use 'vim-airline/vim-airline-themes'
-
-	-- tagbar
-	use 'preservim/tagbar'
-
-	-- fugitive 
-	use 'tpope/vim-fugitive'
-
-	-- vim latex
-	use 'vim-latex/vim-latex'
-
-	-- vim align (in the arch repos)
-	use 'junegunn/vim-easy-align'
-
-    -- ultisnips and snippets
-    use 'SirVer/ultisnips'
-	use 'honza/vim-snippets'
-
-	-- typst
-	use {'kaarmu/typst.vim', ft = {'typst'}}
-
-	-- treesitter
-	--use {
-	--	'nvim-treesitter/nvim-treesitter',
-	--	run = function()
-	--		local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-	--		ts_update()
-	--	end,
-	--}
-
-	use {
+    'preservim/nerdtree',
+    'morhetz/gruvbox',
+    'SirVer/ultisnips',
+	'williamboman/mason.nvim',
+	'williamboman/mason-lspconfig.nvim',
+	'neovim/nvim-lspconfig',
+	{'kaarmu/typst.vim', ft = {'typst'}},
+	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
-		requires = {
+		dependencies = {
 			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
 			{                                      -- Optional
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
 				end,
 			},
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
 
 			-- Autocompletion from snippets
 			{'hrsh7th/nvim-cmp'},     -- Required
@@ -79,13 +47,10 @@ return require('packer').startup(function()
 			{'hrsh7th/cmp-cmdline'}, -- Required
 
 		}
-	}
-	-- your ultisnips should also be integrated into the completion
-	-- engine not just through the use of sources.
-	-- but a third party plugin also...
-	use({
+	},
+	{
 		"hrsh7th/nvim-cmp",
-		requires = {
+		dependencies = {
 			"quangnguyen30192/cmp-nvim-ultisnips",
 			config = function()
 				-- optional call to setup (see customization section)
@@ -94,15 +59,51 @@ return require('packer').startup(function()
 			-- If you want to enable filetype detection based on treesitter:
 			-- requires = { "nvim-treesitter/nvim-treesitter" },
 		}
-	})
+	},
 
-	-- telescope and harpoon
-	use {
+	-- telescope 
+	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.3',
 		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
-	use { 'ThePrimeagen/harpoon' }
-end)
+		dependencies = { {'nvim-lua/plenary.nvim'} }
+	},
+
+	-- harpoon 
+	'ThePrimeagen/harpoon',
+
+	
+	-- airline 
+	'vim-airline/vim-airline',
+	'vim-airline/vim-airline-themes',
+
+	-- tagbar
+	'preservim/tagbar',
+
+	-- fugitive 
+	'tpope/vim-fugitive',
+
+	-- vim latex
+	'vim-latex/vim-latex',
+
+	-- vim align (in the arch repos)
+	'junegunn/vim-easy-align',
+
+	-- ultisnips and snippets
+	'honza/vim-snippets',
+	-- tree, like NERDTree but another one in lua
+	'nvim-tree/nvim-tree.lua',
+	'nvim-tree/nvim-web-devicons',
+}
+local opts = {}
+
+
+vim.g.mapleader = "\\" -- Make sure to set `mapleader` before lazy so your mappings are correct
+
+require("lazy").setup(plugins, opts)
+
+	
+
+
+
 
 
