@@ -57,7 +57,7 @@ local plugins = {
 				require("cmp_nvim_ultisnips").setup{}
 			end,
 			-- If you want to enable filetype detection based on treesitter:
-			-- requires = { "nvim-treesitter/nvim-treesitter" },
+			dependencies = { "nvim-treesitter/nvim-treesitter" },
 		}
 	},
 
