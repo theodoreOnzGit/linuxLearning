@@ -2,6 +2,10 @@ echo "basic_stuff: installs vim, git and other compilation tools"
 function basic_stuff(){
 	sudo apt install build-essential \
 		vim tmux cmake fontconfig gcc gfortran -y
+
+	rm ~/.tmux.conf
+	cp tmux.conf ~/.tmux.conf
+
 	}
 
 echo "zsh_plus: zsh and font installs"
