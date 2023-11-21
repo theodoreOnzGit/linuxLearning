@@ -1,6 +1,3 @@
---basic settings, spellcheck and others
-require('basic_settings.settings')
-
 -- disable netrw at start of init.lua 
 
 vim.g.loaded_netrw = 1
@@ -20,4 +17,10 @@ require("mason-lspconfig").setup()
 -- lsp
 require('lsp')
 
+-- hop 
+require('hop_settings')
+
+
+--basic settings, spellcheck and others
+require('basic_settings.settings')
 

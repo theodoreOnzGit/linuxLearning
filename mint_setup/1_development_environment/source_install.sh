@@ -1,3 +1,25 @@
+echo "install_mint_development_environment: basically runs all the commands within this source file"
+echo ""
+
+function install_mint_development_environment() {
+	basic_stuff
+	zsh_plus
+	github
+	bleeding_edge_neovim
+	nvim_stuff
+	latex_stuff
+	terminal_navigation
+	install_ssh
+	rust_install
+	rust_stuff 
+	alacritty_setup
+	apt_fast_install
+	kde_stuff
+	latest_gcc
+	citations
+	rust_eframe_deps
+}
+
 echo "basic_stuff: installs vim, git and other compilation tools"
 function basic_stuff(){
 	sudo apt install build-essential \
@@ -45,7 +67,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 
 echo "bleeding_edge_neovim : installs ppas and neovim bleeding edge"
 function bleeding_edge_neovim(){
-	sudo add-apt-repository ppa:neovim-ppa/unstable
+	sudo add-apt-repository ppa:neovim-ppa/unstable -y
 	sudo apt update
 	sudo apt install neovim -y
 }
@@ -67,7 +89,7 @@ function rust_stuff(){
 
 	rustup override set stable
 	rustup update stable
-	sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+	sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
 	git clone https://github.com/alacritty/alacritty.git
 	cd alacritty
 	cargo build --release
@@ -108,7 +130,7 @@ function terminal_navigation(){
 
 echo "apt_fast_install: installs apt fast"
 function apt_fast_install(){
-	sudo apt install aria2
+	sudo apt install aria2 -y
 	/bin/bash -c "$(curl -sL https://git.io/vokNn)"
 }
 
@@ -151,7 +173,10 @@ function nvim_stuff(){
 	# lua telescope and harpoon 
 	rm ~/.config/nvim/lua/telescope_harpoon.lua
 	cp nvim_files/telescope_harpoon.lua ~/.config/nvim/lua/telescope_harpoon.lua
-	
+
+	# hop 
+	rm ~/.config/nvim/lua/hop_settings.lua
+	cp nvim_files/hop_settings.lua ~/.config/nvim/lua/hop_settings.lua
 
 }
 
@@ -164,17 +189,17 @@ echo "latest_gcc: installs latest version of gcc for newer processors"
 function latest_gcc(){
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
 	sudo apt update
-	sudo apt install g++-12 gcc-12
+	sudo apt install g++-12 gcc-12 -y
 }
 
 echo "citations: installs jabref and other suites"
 function citations(){
-	sudo apt install jabref
+	sudo apt install jabref -y
 }
 
 echo "rust_eframe_deps: installs rust-eframe dependencies"
 function rust_eframe_deps(){
-	sudo apt-get install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev
+	sudo apt-get install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev -y
 }
 
 echo "tuxedo_firmware_jammy: 
@@ -183,7 +208,7 @@ for clevo laptops specificially, install firmware for keyboard, fan etc
 function tuxedo_firmware_jammy(){
 	sudo add-apt-repository "deb https://deb.tuxedocomputers.com/ubuntu jammy main"
 	sudo apt update --allow-insecure-repositories
-	sudo apt install --allow-unauthenticated tuxedo-archive-keyring
+	sudo apt install --allow-unauthenticated tuxedo-archive-keyring -y
 	sudo apt update
 	sudo apt install tuxedo-control-center tuxedo-keyboard -y
 }

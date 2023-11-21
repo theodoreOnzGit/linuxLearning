@@ -93,6 +93,13 @@ local plugins = {
 	-- tree, like NERDTree but another one in lua
 	'nvim-tree/nvim-tree.lua',
 	'nvim-tree/nvim-web-devicons',
+
+	-- hop for neovim easymotions
+	{
+		'smoka7/hop.nvim',
+		version = "*",
+		opts = {},
+	},
 }
 local opts = {}
 
@@ -100,10 +107,4 @@ local opts = {}
 vim.g.mapleader = "\\" -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 require("lazy").setup(plugins, opts)
-
-	
-
-
-
-
 
