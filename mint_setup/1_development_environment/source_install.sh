@@ -80,6 +80,7 @@ function install_ssh(){
 echo "rust_install: installs rust and rustup"
 function rust_install(){
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	source ~/.bashrc
 }
 
 echo "rust_stuff: installs rust tools using cargo and such"
@@ -118,8 +119,7 @@ function rust_stuff(){
 echo "alacritty_setup: sets up alacritty along with its fonts"
 function alacritty_setup(){
 	rm -rf ~/.alacritty.yml ~/.alacritty.toml
-	cp alacritty.yml ~/.alacritty.yml
-	alacritty migrate
+	cp alacritty.toml ~/.alacritty.toml
 }
 
 
