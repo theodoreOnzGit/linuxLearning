@@ -149,7 +149,7 @@ function nvim_stuff(){
 	sudo apt install vim-solarized vim-snippets -y
 	sudo apt install vim-latexsuite vim-tabular -y
 	sudo apt install vim-ctrlp universal-ctags -y
-	sudo apt install npm python3-pynvim -y
+	sudo apt install npm python3-pynvim python3-venv -y
 
 	# packer
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
