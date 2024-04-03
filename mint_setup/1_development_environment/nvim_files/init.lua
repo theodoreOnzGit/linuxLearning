@@ -22,5 +22,5 @@ require('hop_settings')
 
 
 --basic settings, spellcheck and others
-require('basic_settings.settings')
+require('basic_init')
 
