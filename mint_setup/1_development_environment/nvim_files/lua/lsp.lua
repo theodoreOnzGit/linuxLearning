@@ -98,7 +98,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   -- Apparently markdown parser is required for rust lsp
-  ensure_installed = {"markdown"},
+  ensure_installed = {"markdown","lua"},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
