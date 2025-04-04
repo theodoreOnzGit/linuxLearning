@@ -23,7 +23,6 @@ local plugins = {
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
 	'neovim/nvim-lspconfig',
-	{'kaarmu/typst.vim', ft = {'typst'}},
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',

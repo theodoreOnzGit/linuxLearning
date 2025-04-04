@@ -9,8 +9,6 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
 
--- for typst
-require 'lspconfig'.typst_lsp.setup {}
 
 -- for completion
 
